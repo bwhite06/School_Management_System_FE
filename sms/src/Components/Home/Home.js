@@ -7,14 +7,18 @@ class Home extends Component {
     //routes
     return (
       <div>
+        <div> 
         <label>SMS - School Management System</label>
+        <Button>Sign-In</Button>
+        </div>
+        
         <nav>
           <NavLink>Home</NavLink>
           <NavLink to="/construction">Register</NavLink>
           <NavLink to="/construction">More-Info</NavLink>
-          <Button>Sign-In</Button>
+          
         </nav>
-
+        
       </div>
     );
   }
