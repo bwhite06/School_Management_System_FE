@@ -7,17 +7,15 @@ class Home extends Component {
     //routes
     return (
       <div>
-        <div> 
+        <nav> 
         <label>SMS - School Management System</label>
+        <NavLink>Home</NavLink>
+        <NavLink to="/construction">Register</NavLink>
+        <NavLink to="/construction">More-Info</NavLink>
         <Button>Sign-In</Button>
-        </div>
-        
-        <nav>
-          <NavLink>Home</NavLink>
-          <NavLink to="/construction">Register</NavLink>
-          <NavLink to="/construction">More-Info</NavLink>
-          
         </nav>
+        <h1>Welcome to the Student Management System</h1>
+        <img src ={require('./images/activity-boys-children-1153976.jpg')}  />
         
       </div>
     );
