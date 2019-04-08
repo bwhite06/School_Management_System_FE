@@ -333,3 +333,5 @@ ASALocalRun/
 # Local History for Visual Studio
 .localhistory/
 School_Management_FE/sms/yarn.lock
+*.lock
+sms/yarn.lock
