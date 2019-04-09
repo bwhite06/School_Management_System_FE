@@ -22,6 +22,7 @@ constructor(){
 handleInputChange = event => {
   this.setState({ [event.target.name]: event.target.value });
 };
+
 componentDidMount(){
 
 }
@@ -42,8 +43,10 @@ login = (event) =>  {
   .then(response=>{
     console.log(response);
     window.sessionStorage.setItem("authKey", response.data.token);
-    const auth = window.sessionStorage.getItem('authKey');
-    console.log(auth);
+    window.sessionStorage.setItem('user_id',response.data.user);
+    const user_id = window.sessionStorage.getItem('user_id');
+    const auth = window.sessionStorage.setItem('authKey');
+    console.log(auth,user_id);
  
   },this.props.history.push(`/MainScreen`))
   .catch(err=>{

@@ -5,7 +5,7 @@ import './App.css';
 import Home from './Components/Home/Home.js';
 import Construct from './Components/Construct.js'
 import MainScreen from './Components/MainScreen/MainScreen';
-
+import UpdateProfileForm from './Components/UpdateProfileForm/UpdateProfileForm.js'
 
 class App extends Component {
   constructor(props) {
@@ -18,6 +18,7 @@ class App extends Component {
         <Route exact path="/" component={Home} />
         <Route exact path="/MainScreen" component={MainScreen} />
         <Route exact path="/construction" component={Construct} />
+        <Route exact path ='/UpdateProfile' component ={UpdateProfileForm}/>
       </div>
     );
   }
