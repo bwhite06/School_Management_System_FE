@@ -58,20 +58,30 @@ login = (event) =>  {
 render() {
     //routes
     return (
-      <div>
+      <div className="outer">
+        <div className='outsideNav'>
         <nav> 
         <label>SMS - School Management System</label>
         <NavLink>Home</NavLink>
-        <NavLink to="/Registration">Register</NavLink>
+        <NavLink to="/Registration">Register Student</NavLink>
         <NavLink to="/construction">More-Info</NavLink>
         <input className = "username" placeholder='username' name= 'username' onChange ={this.handleInputChange} value = {this.state.username}/>
         <input className = "password" placeholder='password' name= 'password' onChange ={this.handleInputChange} value = {this.state.password}/>
       
         <Button onClick={this.login}>Sign-In</Button>
         </nav>
-        <h1>Welcome to the School Management System</h1>
-        <img src ={require('./images/activity-boys-children-1153976.jpg')}  />
+        </div>
         
+        <h1 className='Title'>Welcome to the School Management System</h1>
+        <img src ={require('./images/activity-boys-children-1153976.jpg')}  />
+        <h1>get your own account</h1>
+
+        <h1>Schedule your classes with easy</h1>
+        <p>
+          This System connects student and teacher 
+        </p>
+        <img src ={require('./images/backpacks-college-college-students-1454360.jpg')}  />
+        <p>teacher login</p>
       </div>
     );
   }

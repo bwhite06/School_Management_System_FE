@@ -68,7 +68,7 @@ if(this.state.confirmPassword==this.state.password){
           <input className = "username" placeholder='username' name= 'username' onChange ={this.handleInputChange} value = {this.state.username}/>
           <input className = "password" placeholder='password' name= 'password' onChange ={this.handleInputChange} value = {this.state.password}/>
           <input className = "confirmPassword" placeholder='confirmPassword' name= 'confirmPassword' onChange ={this.handleInputChange} value = {this.state.confirmPassword}/>
-          <Button onClick={this.register} >update-info</Button>
+          <Button className ='info' onClick={this.register} >update-info</Button>
       <p >{this.state.message}</p>
       </div>
     );
