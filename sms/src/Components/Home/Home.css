@@ -25,11 +25,17 @@ width: 700px;
 .username{
     height: 2rem;   
     margin-top: 1rem;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 10px;
 
 }
 .password{
     height: 2rem;   
     margin-top: 1rem;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 10px;
 }
 
 button{
