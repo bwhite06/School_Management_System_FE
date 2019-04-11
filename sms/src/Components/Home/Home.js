@@ -34,9 +34,13 @@ login = (event) =>  {
     
   }
 
+if(creds.username==""||creds.password==""){
+  
+  alert("please enter password");
+  this.props.history.push(`/`);
 
 
-
+}else{
   const URL = `${host}/login`;
   axios
   .post(`${URL}`,creds)
@@ -52,6 +56,10 @@ login = (event) =>  {
   .catch(err=>{
      console.log(err.response)
   })
+}
+
+
+  
 }
 
 
