@@ -34,17 +34,13 @@ class UpdateProfile extends Component {
     const user_id = window.sessionStorage.getItem('user_id')
     axios
     .put(`${host}/createStudentProfile/${user_id}`,info).then(response=>{
-console.log(response)
-this.setState({
-            email: response.data[0].email,
-            username: response.data[0].username,
-            school: response.data[0].school,
-            classes: response.data[0].classes,
-            address: response.data[0].address
-})
+console.log(response);
+this.props.history.push(`/MainScreen`)
     }).catch(err=>{
         console.log(err)
     })
+
+//add in school
 }
 
 

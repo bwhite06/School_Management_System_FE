@@ -1,0 +1,35 @@
+.nav {
+
+display: flex;
+}
+.nav a {
+    padding-top: 15px; 
+    padding-left: 22rem;
+    
+}
+.sidenav{
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.left {
+    width: 20%;
+    float: left;
+    display: flex;
+    height: 20rem;
+    width: 8rem;
+
+}
+.nav a {
+    display: block;
+    line-height: 3em;
+    width: 100%;
+    text-decoration: none;
+}
+.sidenav a{
+    display: block;
+    text-decoration: none;
+    margin-top: 4rem;
+}

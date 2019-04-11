@@ -50,14 +50,21 @@ class MainScreen extends Component {
     //routes
     return (
       <div>
-          <nav>
+          <nav className = "nav" >
           <p>{this.state.profile.username}</p>
           <NavLink to ="/UpdateProfile"> Update Profile </NavLink>
            </nav>
-        <h1>Welcome to sms system</h1>
+      <div className='left'>
+      <nav className = 'sidenav'>
+           <NavLink to ="/construction"> Homework </NavLink>
+           <NavLink to ="/construction"> Schedule </NavLink>
+           </nav>
+    </div>
+           
+        <h1>Welcome To sms System</h1>
        
-        <Profile {...this.props} profile = {this.state} />} /> 
-       
+        <Profile {...this.props} profile = {this.state} /> 
+        {/* notifications */}
 
       </div>
     );

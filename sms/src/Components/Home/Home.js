@@ -62,14 +62,14 @@ render() {
         <nav> 
         <label>SMS - School Management System</label>
         <NavLink>Home</NavLink>
-        <NavLink to="/construction">Register</NavLink>
+        <NavLink to="/Registration">Register</NavLink>
         <NavLink to="/construction">More-Info</NavLink>
         <input className = "username" placeholder='username' name= 'username' onChange ={this.handleInputChange} value = {this.state.username}/>
         <input className = "password" placeholder='password' name= 'password' onChange ={this.handleInputChange} value = {this.state.password}/>
       
         <Button onClick={this.login}>Sign-In</Button>
         </nav>
-        <h1>Welcome to the Student Management System</h1>
+        <h1>Welcome to the School Management System</h1>
         <img src ={require('./images/activity-boys-children-1153976.jpg')}  />
         
       </div>
