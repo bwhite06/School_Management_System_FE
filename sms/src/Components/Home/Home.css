@@ -2,7 +2,7 @@ body{
     background-color: beige;
 }
 .outer{
-    margin-left: 1rem; 
+    margin-left: 25%; 
 }
 
 
@@ -63,3 +63,6 @@ a .active{
 .Title{
     margin-top: 100px;
 }
+.outsideNav .btn{
+    margin-left: 10px;
+} 
