@@ -47,7 +47,7 @@ if(creds.username==""||creds.password==""){
   .then(response=>{
     console.log(response);
     window.sessionStorage.setItem("authKey", response.data.token);
-    window.sessionStorage.setItem('user_id',response.data.user);
+    window.sessionStorage.setItem('user_id',response.data.user_id);
     const user_id = window.sessionStorage.getItem('user_id');
     const auth = window.sessionStorage.setItem('authKey');
     console.log(auth,user_id);
@@ -71,11 +71,13 @@ render() {
         <nav> 
         <label>SMS - School Management System</label>
         <NavLink>Home</NavLink>
+        {//
+        }
         <div class="dropdown">
         <button class="dropbtn">Register</button>
         <div class="dropdown-content">
         <NavLink to="/Registration">Register as a Student</NavLink>
-        <NavLink to="/construction">Register as a Teacher</NavLink>
+        <NavLink to="/RegistrationTeacher">Register as a Teacher</NavLink>
       
   </div>
 </div>

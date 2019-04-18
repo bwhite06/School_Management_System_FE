@@ -7,6 +7,7 @@ import Construct from './Components/Construct.js'
 import MainScreen from './Components/MainScreen/MainScreen';
 import UpdateProfileForm from './Components/UpdateProfileForm/UpdateProfileForm.js'
 import RegistrationPage from './Components/RegistrationPage/RegistrationPage.js'
+import RegistrationTeacher from './Components/RegisterTeacher/RegistrationTeacher.js'
 class App extends Component {
   constructor(props) {
     super(props)
@@ -20,6 +21,7 @@ class App extends Component {
         <Route exact path="/construction" component={Construct} />
         <Route exact path ='/UpdateProfile' component ={UpdateProfileForm}/>
         <Route exact path ='/Registration' component ={RegistrationPage}/>
+        <Route exact path="/RegistrationTeacher"component ={RegistrationTeacher}/>
       </div>
     );
   }

@@ -27,9 +27,11 @@ display: flex;
     line-height: 3em;
     width: 100%;
     text-decoration: none;
+    color: black;
 }
 .sidenav a{
     display: block;
     text-decoration: none;
     margin-top: 4rem;
+    color: black;
 }

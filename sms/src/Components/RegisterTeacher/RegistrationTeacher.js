@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { Button } from 'reactstrap';
-import './RegistrationPage.css';
 import axios from 'axios'
 
 const host = 'http://localHost:5000'
-class RegistrationPage extends Component {
+class RegistrationTeacher extends Component {
   constructor(props) {
     super(props)
     this.state={
@@ -35,7 +34,7 @@ class RegistrationPage extends Component {
    }
 if(this.state.confirmPassword==this.state.password){
     axios
-    .post(`${host}/registerStudent`,info).then(response=>{
+    .post(`${host}/registerTeacher`,info).then(response=>{
         console.log(response);
         window.sessionStorage.setItem("authKey", response.data.token);
     
@@ -62,6 +61,7 @@ if(this.state.confirmPassword==this.state.password){
     //routes
     return (
       <div>
+        <h3>Are you a Teacher?</h3>
           <h3>Join-easy as one two three</h3>
           <p>lets go!!</p>
           <input className = "email" placeholder='email' name= 'email' onChange ={this.handleInputChange} value = {this.state.email}/>
@@ -75,4 +75,4 @@ if(this.state.confirmPassword==this.state.password){
   }
 }
 
-export default RegistrationPage;
+export default RegistrationTeacher;
