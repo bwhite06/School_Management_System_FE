@@ -71,8 +71,16 @@ render() {
         <nav> 
         <label>SMS - School Management System</label>
         <NavLink>Home</NavLink>
-        <NavLink to="/Registration">Register Student</NavLink>
-        <NavLink to="/construction">More-Info</NavLink>
+        <div class="dropdown">
+        <button class="dropbtn">Register</button>
+        <div class="dropdown-content">
+        <NavLink to="/Registration">Register as a Student</NavLink>
+        <NavLink to="/construction">Register as a Teacher</NavLink>
+      
+  </div>
+</div>
+        
+       
         <input className = "username" placeholder='username' name= 'username' onChange ={this.handleInputChange} value = {this.state.username}/>
         <input className = "password" placeholder='password' name= 'password' onChange ={this.handleInputChange} value = {this.state.password}/>
       
