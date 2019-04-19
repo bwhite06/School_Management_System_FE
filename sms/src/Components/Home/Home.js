@@ -34,7 +34,7 @@ login = (event) =>  {
     
   }
 
-if(creds.username==""||creds.password==""){
+if(creds.username===""||creds.password===""){
   
   alert("please enter password");
   this.props.history.push(`/`);
