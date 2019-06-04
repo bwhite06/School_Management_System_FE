@@ -5,10 +5,13 @@ import axios from 'axios';
 import Profile from '../Profile/Profile';
 const jwtJsDecode = require('jwt-js-decode')
 
+  
+
 const auth = window.sessionStorage.getItem('authKey');
 const user_id = window.sessionStorage.getItem('user_id');
+
+
 let jwt = jwtJsDecode.jwtDecode(auth);
-    console.log(jwt.payload);
    
 
 
@@ -32,7 +35,8 @@ class MainScreen extends Component {
     }
   }
   componentWillMount(){
-    if(jwt.payload.user_type==='student'){  
+    if(jwt != null){
+      if(jwt.payload.user_type==='student'){  
     
         axios
         .get(`${host}/studentProfile/${user_id}`)
@@ -87,6 +91,8 @@ class MainScreen extends Component {
 
 
     }
+    }
+    
     
   render() {
     //routes
