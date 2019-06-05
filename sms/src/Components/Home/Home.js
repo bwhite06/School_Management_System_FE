@@ -86,7 +86,7 @@ render() {
         <input className = "username" placeholder='username' name= 'username' onChange ={this.handleInputChange} value = {this.state.username}/>
         <input className = "password" placeholder='password' name= 'password' onChange ={this.handleInputChange} value = {this.state.password}/>
       
-        <Button onClick={this.login}>Sign-In</Button>
+        <Button outline color="primary" className ='updateButton' onClick={this.login}>Sign-In</Button>
         </nav>
         </div>
         

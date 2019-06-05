@@ -2,11 +2,7 @@
 
 display: flex;
 }
-.nav a {
-    padding-top: 15px; 
-    padding-left: 22rem;
-    
-}
+
 .sidenav{
     position: absolute;
     margin: 0;
@@ -22,16 +18,19 @@ display: flex;
     width: 8rem;
 
 }
-.nav a {
-    display: block;
-    line-height: 3em;
-    width: 100%;
-    text-decoration: none;
-    color: black;
-}
+
 .sidenav a{
     display: block;
     text-decoration: none;
     margin-top: 4rem;
     color: black;
+}
+.updateButton{
+    background-color: whitesmoke;
+    padding-left: 0px;
+    width: 214px;
+    height: 63px;
+    padding-top: 10px;
+    margin-top: 0px;
+    margin-left: 30rem;
 }

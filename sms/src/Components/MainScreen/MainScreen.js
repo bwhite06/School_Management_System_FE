@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Route, Switch,NavLink} from 'react-router-dom';
+import { Link,Route, Switch,NavLink} from 'react-router-dom';
 import './MainScreen.css';
 import axios from 'axios';
 import Profile from '../Profile/Profile';
+import { Button } from 'reactstrap';
 const jwtJsDecode = require('jwt-js-decode')
 
   
@@ -100,7 +101,7 @@ class MainScreen extends Component {
       <div>
           <nav className = "nav" >
           <p>{this.state.profile.username}</p>
-          <NavLink to ="/UpdateProfile"> Update Profile </NavLink>
+          <Button outline color="primary" className ='updateButton btncustom' tag={Link} to="/UpdateProfile" >Update Profile </Button>{}
            </nav>
       <div className='left'>
       <nav className = 'sidenav'>
@@ -108,7 +109,7 @@ class MainScreen extends Component {
            <NavLink to ="/construction"> Schedule </NavLink>
            </nav>
     </div>
-           
+     
         <h1>Welcome To sms System</h1>
        
         <Profile {...this.props} profile = {this.state} /> 
