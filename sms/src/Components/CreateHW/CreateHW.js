@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import {Button , Input} from 'reactstrap'
+import {Button , Input,FormGroup,Label,FormText} from 'reactstrap'
 import './CreateHW.css'
 import axios from 'axios';
 
@@ -28,8 +28,8 @@ class CreateHW extends Component {
        let creds = {
         title:this.state.title,
         allDay:this.state.allDay,
-        start: this.state.start,
-        end:this.state.end,
+        start: Date(this.state.start),
+        end: Date(this.state.end),
         student_id:Number(this.state.student_id)
 
        }
@@ -66,16 +66,26 @@ class CreateHW extends Component {
                       })
             }
         }} className='allDay' name ='allDay'  />{' '}
-        <h5>Is This an All Day Assignment or Event?</h5>
+        <h5 className ='checkboxHeading'>Is This an All Day Assignment or Event?</h5>
         </label>
         
         <Input className = "title" placeholder='title' name= 'title' onChange ={this.handleInputChange} value = {this.state.title}/>
         
         <Input className = "start" placeholder='start' name= 'start' onChange ={this.handleInputChange} value = {this.state.start}/>
         <Input className = "end" placeholder='end' name= 'end' onChange ={this.handleInputChange} value = {this.state.end}/>
+        
         <Input className = "student_id" placeholder='student_id' name= 'student_id' onChange ={this.handleInputChange} value = {Number(this.state.student_id)}/>
-        <Button onClick={this.CreateHW}>Submit</Button>
+        <FormGroup>
+          <Label for="exFile">File</Label>
+          <Input type="file" name="file" id="exFile" />
+          <FormText color="muted">
+            Place Your Assignment Here
+          </FormText>
+        </FormGroup>
+        <Button name= 'submit' onClick={this.CreateHW}>submit</Button>
+        
         </div>
+        
       );
     }
   }

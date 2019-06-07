@@ -172,8 +172,8 @@ class MainScreen extends Component {
        {this.state.isHidden && <TeacherProfile {...this.props} profile = {this.state} /> }
     {!this.state.isHidden && <StudentProfile {...this.props} profile = {this.state} /> }
         {/* notifications */}
-  <Calendar  hw ={this.state.hw} isAuthed={true} />}
-/>
+  <Calendar  hw ={this.state.hw} isAuthed={true} />
+
       </div>
     );
   }

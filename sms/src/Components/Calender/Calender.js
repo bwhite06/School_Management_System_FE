@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-daterangepicker/daterangepicker.css';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { Button } from 'reactstrap';
-
+import './Calender.css'
 
 
 
@@ -33,7 +33,7 @@ class Calendar extends React.Component {
          
         return (
             <div>
-                <Button onClick={this.update}/>
+                <Button className='updateBtn' onClick={this.update}>Update Calender</Button>
                 <div style={{ height: 700 }}>
     <BigCalendar
     localizer = {localizer}
