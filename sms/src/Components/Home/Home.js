@@ -52,10 +52,11 @@ if(creds.username===""||creds.password===""){
     const auth = window.sessionStorage.setItem('authKey');
     console.log(auth,user_id);
  
-  },this.props.history.push(`/MainScreen`))
+  })
   .catch(err=>{
      console.log(err.response)
-  })
+  },this.props.history.push(`/MainScreen`))
+  
 }
 
 
@@ -88,6 +89,10 @@ render() {
       
         <Button outline color="primary" className ='updateButton' onClick={this.login}>Sign-In</Button>
         </nav>
+        <div className ='TeacherLoginRedirect'>
+        <NavLink to =  "/TeacherLogin" >Are you a teacher? sign in here</NavLink>
+        </div>
+             
         </div>
         
         <h1 className='Title'>Welcome to the School Management System</h1>

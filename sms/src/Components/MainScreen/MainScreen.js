@@ -2,17 +2,27 @@ import React, { Component } from 'react';
 import { Link,Route, Switch,NavLink} from 'react-router-dom';
 import './MainScreen.css';
 import axios from 'axios';
-import Profile from '../Profile/Profile';
+import StudentProfile from '../Profile/Profile';
 import { Button } from 'reactstrap';
-const jwtJsDecode = require('jwt-js-decode')
+import Calendar from '../Calender/Calender';
+import TeacherProfile from '../TeacherProfile/TeacherProfile'
 
-  
 
-const auth = window.sessionStorage.getItem('authKey');
+
+const jwtJsDecode = require('jwt-js-decode');
 const user_id = window.sessionStorage.getItem('user_id');
+let jwt =null;
 
 
-let jwt = jwtJsDecode.jwtDecode(auth);
+
+
+
+
+
+//while(jwt !== null){
+  
+//}
+
    
 
 
@@ -25,6 +35,13 @@ class MainScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      isHidden: false,
+        hwsch:{
+          'title': '',
+          'allDay': Boolean,
+          'start': '',
+          'end': ''
+        },
         profile:{
             email: "",
             username:  "",
@@ -35,7 +52,14 @@ class MainScreen extends Component {
         
     }
   }
-  componentWillMount(){
+  componentDidMount(){
+    
+      const auth = window.sessionStorage.getItem('authKey');
+      let jwt = jwtJsDecode.jwtDecode(auth);
+    //===Get hw schedule===
+
+
+
     if(jwt != null){
       if(jwt.payload.user_type==='student'){  
     
@@ -44,6 +68,7 @@ class MainScreen extends Component {
         .then(response=>{
           console.log(response);
           this.setState({
+            isHidden:false,
               profile:{
                 email: response.data[0].email,
                 username: response.data[0].username,
@@ -56,7 +81,7 @@ class MainScreen extends Component {
     
         
         
-          console.log(auth);
+        //  console.log(auth);
        
         })
         .catch(err=>{
@@ -68,6 +93,7 @@ class MainScreen extends Component {
         .then(response=>{
           console.log(response);
           this.setState({
+            isHidden:true,
               profile:{
                 email: response.data[0].email,
                 username: response.data[0].username,
@@ -79,7 +105,7 @@ class MainScreen extends Component {
     
         
         
-          console.log(auth);
+         // console.log(auth);
        
         })
         .catch(err=>{
@@ -105,16 +131,18 @@ class MainScreen extends Component {
            </nav>
       <div className='left'>
       <nav className = 'sidenav'>
-           <NavLink to ="/construction"> Homework </NavLink>
+           <NavLink to ="/Schedule"> Homework </NavLink>
            <NavLink to ="/construction"> Schedule </NavLink>
            </nav>
     </div>
      
         <h1>Welcome To sms System</h1>
-       
-        <Profile {...this.props} profile = {this.state} /> 
+       {this.state.isHidden && <TeacherProfile {...this.props} profile = {this.state} /> }
+    {!this.state.isHidden && <StudentProfile {...this.props} profile = {this.state} /> }
         {/* notifications */}
-
+        <Route path='/Schedule'
+  render={(props) => <Calendar hwsch ={this.state.hwsch} {...props} isAuthed={true} />}
+/>
       </div>
     );
   }
