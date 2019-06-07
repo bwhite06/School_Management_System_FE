@@ -7,7 +7,12 @@ import { Button } from 'reactstrap';
 import Calendar from '../Calender/Calender';
 import TeacherProfile from '../TeacherProfile/TeacherProfile'
 
-
+window.onload = function() {
+  if(!window.location.hash) {
+      window.location = window.location + '#loaded';
+      window.location.reload();
+  }
+}
 
 const jwtJsDecode = require('jwt-js-decode');
 const user_id = window.sessionStorage.getItem('user_id');
@@ -36,11 +41,12 @@ class MainScreen extends Component {
     super(props);
     this.state = {
       isHidden: false,
+      hw:'',
         hwsch:{
-          'title': '',
-          'allDay': Boolean,
-          'start': '',
-          'end': ''
+          title: '',
+          allDay: false,
+          start: '',
+          end: ''
         },
         profile:{
             email: "",
@@ -52,15 +58,24 @@ class MainScreen extends Component {
         
     }
   }
-  componentDidMount(){
+  
     
+  
+     
+    
+    
+
+  componentDidMount(){
+  
+      
+    
+    
+        let j =true;
+      
       const auth = window.sessionStorage.getItem('authKey');
+     if(j){
       let jwt = jwtJsDecode.jwtDecode(auth);
-    //===Get hw schedule===
-
-
-
-    if(jwt != null){
+      
       if(jwt.payload.user_type==='student'){  
     
         axios
@@ -111,14 +126,31 @@ class MainScreen extends Component {
         .catch(err=>{
            console.log(err.response)
         })
-      } else {
-        
-      }
+      } 
 
-
+      axios
+      .get(`${host}/TeacherViewHomeWork/${user_id}`)
+      .then(response=>{
+        console.log(response);
+        this.setState({
+          hw: response.data
+          
+         
+        })
+  
+      
+      
+      
+     
+      })
+      .catch(err=>{
+         console.log(err.response)
+      })
+    
 
     }
     }
+    
     
     
   render() {
@@ -140,12 +172,11 @@ class MainScreen extends Component {
        {this.state.isHidden && <TeacherProfile {...this.props} profile = {this.state} /> }
     {!this.state.isHidden && <StudentProfile {...this.props} profile = {this.state} /> }
         {/* notifications */}
-        <Route path='/Schedule'
-  render={(props) => <Calendar hwsch ={this.state.hwsch} {...props} isAuthed={true} />}
+  <Calendar  hw ={this.state.hw} isAuthed={true} />}
 />
       </div>
     );
   }
-}
+};
 
 export default MainScreen;

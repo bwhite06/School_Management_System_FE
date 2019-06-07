@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import {Button , Input} from 'reactstrap'
 import './CreateHW.css'
+import axios from 'axios';
+
+const host = 'http://localHost:5000'
 
 class CreateHW extends Component {
     constructor(props) {
@@ -9,9 +12,9 @@ class CreateHW extends Component {
       this.state={
           title:'',
           allDay:false,
-          start: new Date(''),
-          end:new Date(''),
-          student_id:Number('')
+          start: "",
+          end:"",
+          student_id: ""
 
       }
     }
@@ -20,23 +23,47 @@ class CreateHW extends Component {
         this.setState({ [event.target.name]: event.target.value });
       };
 
-    CreateHW(){
+    CreateHW = (event) => {
+       event.preventDefault();
+       let creds = {
+        title:this.state.title,
+        allDay:this.state.allDay,
+        start: this.state.start,
+        end:this.state.end,
+        student_id:Number(this.state.student_id)
 
+       }
+
+  const URL = `${host}/Create_A_Assignment/${window.sessionStorage.getItem("user_id")}`;
+  axios
+  .post(`${URL}`,creds)
+  .then(response=>{
+      
+    console.log(response);
+    alert("HW Assignment/Event Created");
+ 
+ 
+  }).catch(err=>{
+      console.log(err)
+  })
     }
-
     render() {
       
       return (
         <div className='createhw'>
-        <h3>Create Homework Assignment</h3>
+        <h3>Create Homework Assignment For Your Students</h3>
         <label>
        
         <Input type ="checkbox" id = 'myCheck' onClick={()=>{
             var checkBox = document.getElementById("myCheck");
             if (checkBox.checked == true){
-              this.state.allDay=true
+              this.setState({
+                allDay:true
+                  })
             } else {
-               this.state.allDay = false;
+                this.setState({
+                    allDay:false
+                      })
             }
         }} className='allDay' name ='allDay'  />{' '}
         <h5>Is This an All Day Assignment or Event?</h5>
@@ -46,8 +73,8 @@ class CreateHW extends Component {
         
         <Input className = "start" placeholder='start' name= 'start' onChange ={this.handleInputChange} value = {this.state.start}/>
         <Input className = "end" placeholder='end' name= 'end' onChange ={this.handleInputChange} value = {this.state.end}/>
-        <Input className = "student_id" placeholder='student_id' name= 'student_id' onChange ={this.handleInputChange} value = {this.state.student_id}/>
-        <Button onClick={this.CreateHW()}>Submit</Button>
+        <Input className = "student_id" placeholder='student_id' name= 'student_id' onChange ={this.handleInputChange} value = {Number(this.state.student_id)}/>
+        <Button onClick={this.CreateHW}>Submit</Button>
         </div>
       );
     }

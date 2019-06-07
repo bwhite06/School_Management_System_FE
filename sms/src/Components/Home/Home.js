@@ -22,7 +22,9 @@ constructor(){
 handleInputChange = event => {
   this.setState({ [event.target.name]: event.target.value });
 };
+componentWillMount(){
 
+}
 componentDidMount(){
 
 }
@@ -51,16 +53,32 @@ if(creds.username===""||creds.password===""){
     const user_id = window.sessionStorage.getItem('user_id');
     const auth = window.sessionStorage.setItem('authKey');
     console.log(auth,user_id);
- 
-  })
-  .catch(err=>{
-     console.log(err.response)
+    this.pushit()
   },this.props.history.push(`/MainScreen`))
+  .catch(err=>{
+    if(err){
+      console.log(err)
+     ;
+      
+    }
+    
+     console.log(err.response)
+  },)
   
 }
 
 
   
+}
+
+pushit(){
+  window.onload = function() {
+    if(!window.location.hash) {
+        window.location = window.location + '#loaded';
+        window.location.reload();
+        this.props.history.push(`/MainScreen`);
+    }
+  }
 }
 
 

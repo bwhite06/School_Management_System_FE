@@ -34,7 +34,7 @@ constructor(){
       
     }
   
-  if(creds.username===""||creds.password===""){
+  if(creds.username==="" && creds.password===""){
     
     alert("please enter password");
     this.props.history.push(`/`);
@@ -49,11 +49,17 @@ constructor(){
       window.sessionStorage.setItem("authKey", response.data.token);
       window.sessionStorage.setItem('user_id',response.data.user_id);
       const user_id = window.sessionStorage.getItem('user_id');
-      const auth = window.sessionStorage.setItem('authKey');
+      const auth = window.sessionStorage.getItem('authKey');
       console.log(auth,user_id);
-   
+      this.pushit()
     },this.props.history.push(`/MainScreen`))
     .catch(err=>{
+      if(err){
+        console.log(err)
+        this.props.history.push(`/`);
+        
+      }
+      
        console.log(err.response)
     })
   }
@@ -61,7 +67,15 @@ constructor(){
   
     
   }
-  
+  pushit(){
+    window.onload = function() {
+      if(!window.location.hash) {
+          window.location = window.location + '#loaded';
+          window.location.reload();
+          this.props.history.push(`/MainScreen`);
+      }
+    }
+  }
   
   render() {
       //routes

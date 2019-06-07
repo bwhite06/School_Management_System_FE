@@ -20,7 +20,6 @@ class App extends Component {
     return (
       <div>
         <Route exact path="/" component={Home} />
-        <Route exact path ='/Schedule' component={Calendar}/>
         <Route exact path="/MainScreen" component={MainScreen} />
         <Route exact path ="/TeacherLogin" component ={TeacherLogin}/>
         <Route exact path="/construction" component={Construct} />

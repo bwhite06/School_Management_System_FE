@@ -1,10 +1,10 @@
 import React from 'react';
-import BigCalendar from 'react-big-calendar'
-import moment from 'moment'
+import BigCalendar from 'react-big-calendar';
+import moment from 'moment';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-daterangepicker/daterangepicker.css';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-
+import { Button } from 'reactstrap';
 
 
 
@@ -18,31 +18,42 @@ const allViews = Object
 class Calendar extends React.Component {
     constructor(props){
         super(props);
+       this.state={
+           hwTitlte:""
+       }
+            
 
     }
+   
     
     
     render() {
-        let events = [{
-            'title': 'All Day Event very long title',
-            'allDay': true,
-            'start': new Date(2019, 5, 6, 10),
-            'end': new Date(2019, 5, 5)
-        
-        },]
+    if(this.props.hw){
+     
+         
         return (
             <div>
+                <Button onClick={this.update}/>
                 <div style={{ height: 700 }}>
     <BigCalendar
     localizer = {localizer}
-      events={events}
+      events={this.props.hw}
       step={60}
       views={allViews}
       defaultDate={new Date(a)}
+      onSelectEvent={event => alert(event.title)}
     />
   </div>
             </div>
+
 );
-    }
+    
+   } else{
+       return <div></div>
+   }
+
+    
+     
+}
 }
 export default Calendar;
