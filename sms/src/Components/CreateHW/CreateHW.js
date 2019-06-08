@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import {Button , Input,FormGroup,Label,FormText} from 'reactstrap'
 import './CreateHW.css'
 import axios from 'axios';
+import moment from 'moment'
 
 const host = 'http://localHost:5000'
 
@@ -24,12 +25,14 @@ class CreateHW extends Component {
       };
 
     CreateHW = (event) => {
+      const format ='LLLL';
+      
        event.preventDefault();
        let creds = {
         title:this.state.title,
         allDay:this.state.allDay,
-        start: Date(this.state.start),
-        end: Date(this.state.end),
+        start:moment(this.state.start).format('LLLL'), 
+        end: moment(this.state.end).format('LLLL'),
         student_id:Number(this.state.student_id)
 
        }
@@ -70,7 +73,8 @@ class CreateHW extends Component {
         </label>
         
         <Input className = "title" placeholder='title' name= 'title' onChange ={this.handleInputChange} value = {this.state.title}/>
-        
+        <h5>Enter Date in this format</h5>
+        <p>2019-6-12 10:30 pm</p>
         <Input className = "start" placeholder='start' name= 'start' onChange ={this.handleInputChange} value = {this.state.start}/>
         <Input className = "end" placeholder='end' name= 'end' onChange ={this.handleInputChange} value = {this.state.end}/>
         

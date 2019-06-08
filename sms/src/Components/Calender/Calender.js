@@ -6,6 +6,7 @@ import 'bootstrap-daterangepicker/daterangepicker.css';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { Button } from 'reactstrap';
 import './Calender.css'
+import "./react-big-calendar.css";
 
 
 
@@ -42,6 +43,9 @@ class Calendar extends React.Component {
       views={allViews}
       defaultDate={new Date(a)}
       onSelectEvent={event => alert(event.title)}
+      startAccessor='start'
+      endAccessor='end'
+      selectable={true}
     />
   </div>
             </div>
