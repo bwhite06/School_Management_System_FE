@@ -1,5 +1,12 @@
 .updateBtn{
   margin-top: 100px;
   width: 126px;
+  margin-bottom: 100px;
 }
 
+.rbc-btn-group{
+  margin-right: 10px;
+  width: 74px;
+}
+
+@import './react-big-calendar.css';

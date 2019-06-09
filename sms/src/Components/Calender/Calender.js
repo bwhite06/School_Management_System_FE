@@ -40,6 +40,7 @@ class Calendar extends React.Component {
     localizer = {localizer}
       events={this.props.hw}
       step={60}
+      defaultView="month"
       views={allViews}
       defaultDate={new Date(a)}
       onSelectEvent={event => alert(event.title)}
