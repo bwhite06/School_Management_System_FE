@@ -36,3 +36,16 @@
   margin-left: 10px;
   width: 84px;
 }
+.updateBtn{
+  margin-top: 30px;
+}
+@media(max-width: 768px){
+  .table{
+max-width: 400px;
+left: 0px;    
+top: 120rem !important;
+
+  }
+
+
+}

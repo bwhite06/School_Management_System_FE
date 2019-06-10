@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import CreateHW from '../CreateHW/CreateHW'
 import { Card, Button, CardHeader, CardFooter, CardBody,
   CardTitle, CardText } from 'reactstrap';
+import './TeacherProfile.css'
 
 class TeacherProfile extends Component {
     constructor(props) {
@@ -21,7 +22,7 @@ class TeacherProfile extends Component {
         <CardText>Address: {this.props.profile.profile.address}</CardText>
         <CardText>Classes: {this.props.profile.profile.classes}</CardText>
           <CardText>Email: {this.props.profile.profile.email}</CardText>
-          
+          <Button className='customBtn'>Update</Button>
         </CardBody>
         
       </Card>

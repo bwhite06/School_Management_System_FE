@@ -1,11 +1,26 @@
 import React, { Component } from 'react';
-import { Link,Route, Switch,NavLink} from 'react-router-dom';
+import { Link,Route, Switch} from 'react-router-dom';
 import './MainScreen.css';
 import axios from 'axios';
 import StudentProfile from '../Profile/Profile';
-import { Button } from 'reactstrap';
+import {Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,Button} from 'reactstrap';
 import Calendar from '../Calender/Calender';
 import TeacherProfile from '../TeacherProfile/TeacherProfile'
+import { Jumbotron, Container } from 'reactstrap';
+
+
+
+
 
 window.onload = function() {
   if(!window.location.hash) {
@@ -39,8 +54,11 @@ const host = 'http://localHost:5000'
 
 class MainScreen extends Component {
   constructor(props) {
+
     super(props);
+    this.toggle = this.toggle.bind(this);
     this.state = {
+      isOpen:false,
       isHidden: false,
       hw:'',
         hwsch:{
@@ -61,7 +79,11 @@ class MainScreen extends Component {
   }
   
     
-  
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
      
     
     
@@ -158,18 +180,38 @@ class MainScreen extends Component {
     //routes
     return (
       <div>
-          <nav className = "nav" >
-          <p>{this.state.profile.username}</p>
-          <Button outline color="primary" className ='updateButton btncustom' tag={Link} to="/UpdateProfile" >Update Profile </Button>{}
-           </nav>
-      <div className='left'>
-      <nav className = 'sidenav'>
-           <NavLink to ="/Schedule"> Homework </NavLink>
-           <NavLink to ="/construction"> Schedule </NavLink>
-           </nav>
-    </div>
-     
-        <h1>Welcome To sms System</h1>
+        <Navbar className='custm' color="light" light expand="md">
+          <NavbarBrand href="/">SMS: {this.state.profile.username}</NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
+          <Button className='smsLogout' onClick={
+              ()=>{
+                window.location.reload();
+                this.props.history.push(`/MainScreen`);
+
+                return window.sessionStorage.clear();
+                
+              }
+            }>Logout</Button>
+            <Nav className="ml-auto" navbar>
+              <NavItem>
+                <NavLink href="/MainScreen">Home</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="#table">Calendar</NavLink>
+              </NavItem>
+            
+            </Nav>
+          
+        </Navbar>
+          
+      
+    <Jumbotron fluid>
+        <Container fluid>
+          <h1 className="display-3">Welcome To sms System</h1>
+          
+        </Container>
+      </Jumbotron>
+        <h1></h1>
        {this.state.isHidden && <TeacherProfile {...this.props} profile = {this.state} /> }
     {!this.state.isHidden && <StudentProfile {...this.props} profile = {this.state} /> }
         {/* notifications */}

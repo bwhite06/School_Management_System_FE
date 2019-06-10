@@ -89,7 +89,7 @@ render() {
         <div className='outsideNav'>
         <nav> 
         <label>SMS - School Management System</label>
-        <NavLink>Home</NavLink>
+        <NavLink to='/'>Home</NavLink>
         {//
         }
         <div class="dropdown">
