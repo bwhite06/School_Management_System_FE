@@ -183,10 +183,11 @@ class MainScreen extends Component {
         <Navbar className='custm' color="light" light expand="md">
           <NavbarBrand href="/">SMS: {this.state.profile.username}</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar>
           <Button className='smsLogout' onClick={
               ()=>{
-                window.location.reload();
-                this.props.history.push(`/MainScreen`);
+                
+                this.props.history.push(`/`);
 
                 return window.sessionStorage.clear();
                 
@@ -199,9 +200,9 @@ class MainScreen extends Component {
               <NavItem>
                 <NavLink href="#table">Calendar</NavLink>
               </NavItem>
-            
+              
             </Nav>
-          
+            </Collapse>
         </Navbar>
           
       
