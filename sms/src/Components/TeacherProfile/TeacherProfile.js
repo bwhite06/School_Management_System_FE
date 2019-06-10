@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import CreateHW from '../CreateHW/CreateHW'
-
+import { Card, Button, CardHeader, CardFooter, CardBody,
+  CardTitle, CardText } from 'reactstrap';
 
 class TeacherProfile extends Component {
     constructor(props) {
@@ -13,11 +14,17 @@ class TeacherProfile extends Component {
       
       return (
         <div>
-        <h1>Teacher Profile</h1>
-        <p>School: {this.props.profile.profile.school}</p>
-        <p>Address: {this.props.profile.profile.address}</p>
-        <p>Classes: {this.props.profile.profile.classes}</p>
-        <p>Email: {this.props.profile.profile.email}</p>
+        <Card>
+        <CardHeader tag="h3">Teacher Profile</CardHeader>
+        <CardBody>
+        <CardText>School: {this.props.profile.profile.school}</CardText>
+        <CardText>Address: {this.props.profile.profile.address}</CardText>
+        <CardText>Classes: {this.props.profile.profile.classes}</CardText>
+          <CardText>Email: {this.props.profile.profile.email}</CardText>
+          
+        </CardBody>
+        
+      </Card>
         
         <CreateHW {...this.props} isAuthed={true} />
         </div>

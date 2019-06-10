@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './Profile.css';
-
+import { Card, Button, CardHeader, CardFooter, CardBody,
+  CardTitle, CardText } from 'reactstrap';
 
 class StudentProfile extends Component {
     constructor(props) {
@@ -10,13 +11,17 @@ class StudentProfile extends Component {
     render() {
       
       return (
-        <div>
-        <h1>Student Profile</h1>
-        <p>School: {this.props.profile.profile.school}</p>
-        <p>Address: {this.props.profile.profile.address}</p>
-        <p>Classes: {this.props.profile.profile.classes}</p>
-        <p>Email: {this.props.profile.profile.email}</p>
-        </div>
+        <Card>
+        <CardHeader tag="h3">Student Profile</CardHeader>
+        <CardBody>
+        <CardText>School: {this.props.profile.profile.school}</CardText>
+        <CardText>Address: {this.props.profile.profile.address}</CardText>
+        <CardText>Classes: {this.props.profile.profile.classes}</CardText>
+          <CardText>Email: {this.props.profile.profile.email}</CardText>
+          
+        </CardBody>
+        
+      </Card>
       );
     }
   }
