@@ -5,8 +5,17 @@
 }
 
 .rbc-btn-group{
-  margin-right: 10px;
-  width: 74px;
+  margin-right:10px;
+  margin-left: 0px;
 }
-
-@import './react-big-calendar.css';
+.rbc-toolbar .rbc-toolbar-label {
+  -webkit-flex-grow: unset;
+  flex-grow: unset;
+  padding: 0 10px;
+  text-align: center;
+}
+.rbc-btn-group button{
+  padding-left: 16px;
+  margin-left: 10px;
+  width: 84px;
+}
