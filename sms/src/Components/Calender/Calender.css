@@ -2,8 +2,25 @@
   margin-top: 100px;
   width: 126px;
   margin-bottom: 100px;
+  align-content: center;
 }
-
+.table{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 35%;
+  color: #426588 !important;
+}
+.rbc-toolbar button{
+  color: #426588 !important;
+}
+.btnCal{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .rbc-btn-group{
   margin-right:10px;
   margin-left: 0px;

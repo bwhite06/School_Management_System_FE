@@ -54,23 +54,11 @@ class CreateHW extends Component {
       
       return (
         <div className='createHw'>
-        <h3>Create Homework Assignment For Your Students</h3>
-        <label>
-       
-        <Input type ="checkbox" id = 'myCheck' onClick={()=>{
-            var checkBox = document.getElementById("myCheck");
-            if (checkBox.checked == true){
-              this.setState({
-                allDay:true
-                  })
-            } else {
-                this.setState({
-                    allDay:false
-                      })
-            }
-        }} className='allDay' name ='allDay'  />{' '}
-        <h5 className ='checkboxHeading'>Is This an All Day Assignment or Event?</h5>
-        </label>
+          <div className='createHwTitle'>
+          <h3>Create Homework Assignment For Your Students</h3>
+          </div>
+        
+        
 
         <div className="p-3 my-2 rounded bg-docs-transparent-grid">
         <Toast>
@@ -79,22 +67,56 @@ class CreateHW extends Component {
           </ToastHeader>
           <ToastBody>
           <Input type='textbox' className = "title" placeholder='title' name= 'title' onChange ={this.handleInputChange} value = {this.state.title}/>
+          <div className='checkBox'>
+       
+       <Input type ="checkbox" id = 'myCheck' onClick={()=>{
+           var checkBox = document.getElementById("myCheck");
+           if (checkBox.checked == true){
+             this.setState({
+               allDay:true
+                 })
+           } else {
+               this.setState({
+                   allDay:false
+                     })
+           }
+       }} className='allDay' name ='allDay'  />{' '}
+       <p className ='checkboxHeading'>Is This an All Day Assignment or Event?</p>
+       </div>
           </ToastBody>
+          
         </Toast>
       </div>
 
-
-        <div>
-        
-        
+      
+      <div className="p-3 my-2 rounded bg-docs-transparent-grid">
+        <Toast>
+          <ToastHeader>
+          <p className='Label'>Please Enter Dates In This Format:    2019-6-12 10:30 pm</p>
+          </ToastHeader>
+          <ToastBody>
+            <Input className = "start" placeholder='start' name= 'start' onChange ={this.handleInputChange} value = {this.state.start}/>
+            <Input className = "end" placeholder='end' name= 'end' onChange ={this.handleInputChange} value = {this.state.end}/>
+       
+          </ToastBody>
+        </Toast>
         </div>
+
+
+        <div className="p-3 my-2 rounded bg-docs-transparent-grid">
+        <Toast>
+          <ToastHeader>
+          <p className='Label'>Please Enter Student ID:</p>
+          </ToastHeader>
+          <ToastBody>
+          <Input className = "student_id" placeholder='student_id' name= 'student_id' onChange ={this.handleInputChange} value = {Number(this.state.student_id)}/>
+       
+          </ToastBody>
+        </Toast>
+        </div>
+
         
-        <p className='Label'>Please enter dates in this format: 2019-6-12 10:30 pm</p>
-        <Input className = "start" placeholder='start' name= 'start' onChange ={this.handleInputChange} value = {this.state.start}/>
-        <Input className = "end" placeholder='end' name= 'end' onChange ={this.handleInputChange} value = {this.state.end}/>
-        <p className='Label'>Please Enter Student ID:</p>
-        <Input className = "student_id" placeholder='student_id' name= 'student_id' onChange ={this.handleInputChange} value = {Number(this.state.student_id)}/>
-        <FormGroup>
+         <FormGroup>
           <Label for="exFile">File</Label>
           <Input type="file" name="file" id="exFile" />
           <FormText color="muted">

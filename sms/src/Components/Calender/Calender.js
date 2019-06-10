@@ -31,9 +31,12 @@ class Calendar extends React.Component {
      
          
         return (
-            <div>
-                <Button className='updateBtn' onClick={this.update}>Update Calender</Button>
-                <div style={{ height: 700,
+            <div className='Calender'>
+              <div className='btnCal'>
+              <Button className='updateBtn' onClick={this.update}>Update Calender</Button>
+               
+              </div>
+                 <div className="table" style={{ height: 700,
                  width:700}}>
     <BigCalendar
     localizer = {localizer}

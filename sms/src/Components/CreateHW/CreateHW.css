@@ -8,3 +8,13 @@
 .start{
    margin-bottom: 2%  !important;
 }
+.checkBox input{
+   left: 20rem;
+}
+.createHwTitle{
+   margin-bottom: 4%;
+   margin-top: 4%;
+}
+.createHw .btn{
+   width: 126px;
+}
