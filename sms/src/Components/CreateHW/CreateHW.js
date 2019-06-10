@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import {Button , Input,FormGroup,Label,FormText} from 'reactstrap'
+import {Button , Input,FormGroup,Label,FormText,Toast, ToastBody, ToastHeader} from 'reactstrap'
 import './CreateHW.css'
 import axios from 'axios';
 import moment from 'moment'
@@ -53,7 +53,7 @@ class CreateHW extends Component {
     render() {
       
       return (
-        <div className='createhw'>
+        <div className='createHw'>
         <h3>Create Homework Assignment For Your Students</h3>
         <label>
        
@@ -71,13 +71,28 @@ class CreateHW extends Component {
         }} className='allDay' name ='allDay'  />{' '}
         <h5 className ='checkboxHeading'>Is This an All Day Assignment or Event?</h5>
         </label>
+
+        <div className="p-3 my-2 rounded bg-docs-transparent-grid">
+        <Toast>
+          <ToastHeader>
+          <p className='Label'>Please Enter Assignment Name:</p>
+          </ToastHeader>
+          <ToastBody>
+          <Input type='textbox' className = "title" placeholder='title' name= 'title' onChange ={this.handleInputChange} value = {this.state.title}/>
+          </ToastBody>
+        </Toast>
+      </div>
+
+
+        <div>
         
-        <Input className = "title" placeholder='title' name= 'title' onChange ={this.handleInputChange} value = {this.state.title}/>
-        <h5>Enter Date in this format</h5>
-        <p>2019-6-12 10:30 pm</p>
+        
+        </div>
+        
+        <p className='Label'>Please enter dates in this format: 2019-6-12 10:30 pm</p>
         <Input className = "start" placeholder='start' name= 'start' onChange ={this.handleInputChange} value = {this.state.start}/>
         <Input className = "end" placeholder='end' name= 'end' onChange ={this.handleInputChange} value = {this.state.end}/>
-        
+        <p className='Label'>Please Enter Student ID:</p>
         <Input className = "student_id" placeholder='student_id' name= 'student_id' onChange ={this.handleInputChange} value = {Number(this.state.student_id)}/>
         <FormGroup>
           <Label for="exFile">File</Label>
