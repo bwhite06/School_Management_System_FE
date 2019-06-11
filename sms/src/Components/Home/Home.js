@@ -51,7 +51,7 @@ if(creds.username===""||creds.password===""){
     window.sessionStorage.setItem("authKey", response.data.token);
     window.sessionStorage.setItem('user_id',response.data.user_id);
     const user_id = window.sessionStorage.getItem('user_id');
-    const auth = window.sessionStorage.setItem('authKey');
+    const auth = window.sessionStorage.getItem('authKey');
     console.log(auth,user_id);
     this.pushit()
   },this.props.history.push(`/MainScreen`))

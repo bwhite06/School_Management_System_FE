@@ -96,7 +96,7 @@ class MainScreen extends Component {
         let j =true;
       
       const auth = window.sessionStorage.getItem('authKey');
-     if(j){
+     try{
       let jwt = jwtJsDecode.jwtDecode(auth);
       
       if(jwt.payload.user_type==='student'){  
@@ -171,6 +171,8 @@ class MainScreen extends Component {
       })
     
 
+    }catch(error){
+this.props.history.push('/');
     }
     }
     
