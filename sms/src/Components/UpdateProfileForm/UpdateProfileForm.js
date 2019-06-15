@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import { Button } from 'reactstrap';
 import './UpdateProfile.css';
 import axios from 'axios'
-
+const jwtJsDecode = require('jwt-js-decode');
 const host = 'http://localHost:5000'
 class UpdateProfile extends Component {
   constructor(props) {
@@ -31,15 +31,29 @@ class UpdateProfile extends Component {
         address: this.state.address
     
    }
-    const user_id = window.sessionStorage.getItem('user_id')
-    axios
-    .put(`${host}/createStudentProfile/${user_id}`,info).then(response=>{
-console.log(response);
-this.props.history.push(`/MainScreen`)
-    }).catch(err=>{
-        console.log(err)
-    })
-
+   
+    const user_id = window.sessionStorage.getItem('user_id');
+    const auth = window.sessionStorage.getItem('authKey');
+    let jwt = jwtJsDecode.jwtDecode(auth);
+    if(jwt.payload.user_type==='student'){
+      axios
+      .put(`${host}/createStudentProfile/${user_id}`,info).then(response=>{
+  console.log(response);
+  this.props.history.push(`/MainScreen`)
+      }).catch(err=>{
+          console.log(err)
+      })
+  
+    }if(jwt.payload.user_type==='teacher'){
+      axios
+      .put(`${host}/createTeacherProfile/${user_id}`,info).then(response=>{
+  console.log(response);
+  this.props.history.push(`/MainScreen`)
+      }).catch(err=>{
+          console.log(err)
+      })
+    }
+  
 //add in school
 }
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch,Link } from 'react-router-dom';
 import './Profile.css';
 import { Card, Button, CardHeader, CardFooter, CardBody,
   CardTitle, CardText } from 'reactstrap';
@@ -18,7 +18,7 @@ class StudentProfile extends Component {
         <CardText>Address: {this.props.profile.profile.address}</CardText>
         <CardText>Classes: {this.props.profile.profile.classes}</CardText>
           <CardText>Email: {this.props.profile.profile.email}</CardText>
-          <Button to = "/UpdateProfile" className='customBtn'>Update</Button>
+          <Button tag={Link} to = "/UpdateProfile" className='customBtn'>Update</Button>
         </CardBody>
         
       </Card>
