@@ -183,7 +183,7 @@ this.props.history.push('/');
     return (
       <div>
         <Navbar className='custm' color="light" light expand="md">
-          <NavbarBrand href="/">SMS: {this.state.profile.username}</NavbarBrand>
+          <NavbarBrand>SMS: {this.state.profile.username}</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
           <Button className='smsLogout' onClick={
@@ -197,10 +197,10 @@ this.props.history.push('/');
             }>Logout</Button>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/MainScreen">Home</NavLink>
+                <NavLink className='smsHome' href="/MainScreen">Home</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="#table">Calendar</NavLink>
+                <NavLink className='smsHome' href="#table">Calendar</NavLink>
               </NavItem>
               
             </Nav>
