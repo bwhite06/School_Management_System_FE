@@ -11,7 +11,7 @@
     "dayjs": "^1.8.14",
     "jwt-decode": "^2.2.0",
     "jwt-js-decode": "^1.3.7",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "prop-types": "^15.7.2",
     "rb-datepicker": "^0.0.5",
     "react": "^16.8.6",
